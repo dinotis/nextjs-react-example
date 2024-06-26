@@ -10,6 +10,7 @@ export function Meetings({
   ...props
 }: React.HTMLAttributes<HTMLElement>) {
   const [meetings, setMeetings] = useState<IMeeting[]>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   async function getMeetings() {
     const data = await axiosInstance.get<BaseResponse<Pagination<IMeeting>>>(
@@ -28,24 +29,35 @@ export function Meetings({
   useEffect(() => {
     getMeetings().then((data) => {
       setMeetings(data.data?.items);
+
+      setLoading(false);
     });
   }, []);
 
   return (
     <div className="flex flex-col space-y-4">
       <div className="flex flex-col space-y-4">
-        {meetings?.map((meeting) => (
-          <div key={meeting.id} className="flex gap-2 justify-between">
-            <span>{meeting.title}</span>
+        {!loading &&
+          meetings?.map((meeting) => (
+            <div key={meeting.id} className="flex gap-2 justify-between">
+              <span>{meeting.title}</span>
 
-            <span>
-              {meeting.startDate &&
-                new Date(meeting.startDate).toLocaleDateString()}
-            </span>
+              <span>
+                {meeting.startDate &&
+                  new Date(meeting.startDate).toLocaleDateString()}
+              </span>
+            </div>
+          ))}
+
+        {!loading && meetings?.length === 0 && (
+          <span className="self-center py-5">No meetings found</span>
+        )}
+
+        {loading && (
+          <div className="flex justify-center items-center h-32">
+            <span>Loading...</span>
           </div>
-        ))}
-
-        {meetings?.length === 0 && <span className="self-center py-5">No meetings found</span>}
+        )}
       </div>
     </div>
   );
