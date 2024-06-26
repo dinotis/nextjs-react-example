@@ -66,10 +66,10 @@ Open the `.env` file in your text editor and enter the following information
 NEXT_PUBLIC_API_URL=[base-url]
 
 # User ID from the API Keys page
-BASIC_AUTH_USERNAME=[user-id]
+NEXT_PUBLIC_BASIC_AUTH_USERNAME=[user-id]
 
 # Your API Key
-BASIC_AUTH_PASSWORD=[api-key]
+NEXT_PUBLIC_BASIC_AUTH_PASSWORD=[api-key]
 ```
 
 
