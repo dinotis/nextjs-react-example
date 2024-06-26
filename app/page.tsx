@@ -13,7 +13,6 @@ export default function Home() {
       <Card>
         <CardHeader>
           <CardTitle>Meetings</CardTitle>
-          <CardDescription>You made 265 meetings this month.</CardDescription>
         </CardHeader>
 
         <CardContent>
