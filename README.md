@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sinié Nextjs Sample
 
-## Getting Started
+To use this sample Apps, you need to [create an account](#create-your-sinié-account) and then upgrade your Sinié account to Corporate first.
+To Upgrade your account, please navigate to this [link](https://dashboard.sinie.io/app/billing/upgrade/corporate).
 
-First, run the development server:
+To see our documentation for the REST APIs you can check out our official [documentation](https://sinie.docs.apiary.io/#reference).
+
+If you have any questions please kindly check our [FAQ](https://sinie.io/faq)
+
+
+## Prerequisites
+
+1. [Node JS](https://nodejs.org/en/)
+2. [Sinié Account](https://dashboard.sinie.io/auth/login)
+3. [Sinié Credentials](#setup-your-api-key) (Instructions below)
+    1. User ID
+    2. API Key
+
+
+## Getting started
+
+Open your terminal:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone this repository
+git clone git@github.com:dinotis/nextjs-react-example.git
+
+# navigate into the cloned project directory
+cd nextjs-react-example
+
+# run NPM to install the app dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Create your Sinié Account
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+In your web browser, navigate to your [Sinié Account](https://dashboard.sinie.io/auth/login) and register/log into your account.
 
-## Learn More
+For this sample app to work, you need an API Key, then if you want to generate an API Key you need to upgrade your account to Corporate.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Setup your API Key
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In your web browser, navigate to [API Key section](https://dashboard.sinie.io/app/api-keys)
 
-## Deploy on Vercel
+If you don't have an API Key, create an API Key first by clicking "Create Key".
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Name your API Key
+2. Click "Reveal" to see your API Key that already created
+3. Copy you API Key to use it
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Setup Other Config
+
+After obtaining the API Key, don't forget to copy and use the `User ID` and the `Base URL` to the `.env` file.
+
+You can check the instructions below.
+
+
+### Setup the .env file
+
+Open the `.env` file in your text editor and enter the following information
+
+```ini
+NEXT_PUBLIC_API_URL=[base-url]
+
+# User ID from the API Keys page
+BASIC_AUTH_USERNAME=[user-id]
+
+# Your API Key
+BASIC_AUTH_PASSWORD=[api-key]
+```
+
+
+## Start the App
+
+### Development
+
+Run the `dev` npm script to start in development mode.
+
+```shell
+npm run dev
+```
